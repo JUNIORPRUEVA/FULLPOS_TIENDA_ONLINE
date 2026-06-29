@@ -29,8 +29,9 @@ const { title, description, canonical, image } = Astro.props;
     <meta name="apple-mobile-web-app-title" content={siteConfig.shortName} />
     <meta name="application-name" content={siteConfig.shortName} />
     <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="icon" href="/icons/logoPrincipal.png" type="image/png" sizes="512x512" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
+    <link rel="apple-touch-icon" href="/icons/logoPrincipal.png" />
     <SEO title={title} description={description} canonical={canonical} image={image} />
   </head>
   <body>

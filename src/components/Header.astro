@@ -2,6 +2,7 @@
 import { siteConfig } from '@config/site';
 import { createWhatsAppLink, defaultWhatsAppMessage } from '@utils/whatsapp';
 import { Download, Menu, MessageCircle, X } from '@lucide/astro';
+import BrandLogo from '@components/BrandLogo.astro';
 
 const navItems = [
   { href: '/', label: 'Inicio' },
@@ -14,13 +15,11 @@ const navItems = [
 
 <header class="sticky top-0 z-40 border-b border-white/10 bg-[#05070d]/96 text-white shadow-lg shadow-slate-950/15 backdrop-blur">
   <div class="container-page flex min-h-16 items-center justify-between gap-3 py-2">
-    <a href="/" class="focus-ring flex min-w-0 items-center gap-2 rounded-md" aria-label="Ir al inicio">
-      <span class="grid size-11 shrink-0 place-items-center overflow-hidden rounded-md bg-white">
-        <img src="/images/logo-fulltech-light.jpg" alt="" class="h-full w-full object-cover" width="44" height="44" />
-      </span>
+    <a href="/" class="focus-ring flex min-w-0 items-center gap-2.5 rounded-md" aria-label="Ir al inicio">
+      <BrandLogo variant="navbar" />
       <span class="leading-tight">
         <strong class="block text-sm font-semibold text-white">{siteConfig.shortName}</strong>
-        <span class="block text-xs text-blue-100/80">Higuey, La Altagracia</span>
+        <span class="block text-[11px] text-blue-100/70">Higuey, La Altagracia</span>
       </span>
     </a>
     <nav class="hidden items-center gap-1 md:flex" aria-label="Navegacion principal">
@@ -51,13 +50,13 @@ const navItems = [
 
 <div id="mobile-drawer" class="fixed inset-0 z-50 hidden md:hidden" aria-hidden="true">
   <button id="drawer-backdrop" class="absolute inset-0 bg-slate-950/70 backdrop-blur-sm" type="button" aria-label="Cerrar menu"></button>
-  <aside class="dark-shell absolute right-0 top-0 flex h-full w-[86vw] max-w-sm flex-col border-l border-white/10 p-5 text-white shadow-2xl">
+  <aside class="dark-shell absolute right-0 top-0 flex h-full w-[86vw] max-w-sm flex-col border-l border-white/10 p-6 text-white shadow-2xl">
     <div class="flex items-center justify-between gap-3">
       <a href="/" class="flex items-center gap-3">
-        <img src="/images/logo-fulltech-light.jpg" alt="" class="size-12 rounded-md bg-white object-cover" width="48" height="48" />
+        <BrandLogo variant="drawer" />
         <span>
-          <strong class="block font-semibold">{siteConfig.name}</strong>
-          <span class="text-sm text-blue-100/75">Panel movil</span>
+          <strong class="block text-base font-semibold">{siteConfig.name}</strong>
+          <span class="text-xs text-blue-100/60">Menu de navegacion</span>
         </span>
       </a>
       <button id="drawer-close" class="touch-target grid place-items-center rounded-md border border-white/15" type="button" aria-label="Cerrar menu">
@@ -66,16 +65,16 @@ const navItems = [
     </div>
     <nav class="mt-8 grid gap-2" aria-label="Menu movil">
       {navItems.map((item) => (
-        <a class="drawer-link rounded-md border border-white/10 bg-white/5 px-4 py-4 text-base font-medium text-slate-100" href={item.href}>
+        <a class="drawer-link rounded-lg border border-white/10 bg-white/5 px-4 py-3.5 text-base font-medium text-slate-100 transition-colors hover:bg-white/10" href={item.href}>
           {item.label}
         </a>
       ))}
     </nav>
     <div class="mt-auto grid gap-3 pt-8">
-      <button id="install-app-button-mobile" class="touch-target inline-flex items-center justify-center gap-2 rounded-md border border-blue-300/60 bg-blue-500/15 px-4 py-3 font-semibold text-blue-50" type="button">
+      <button id="install-app-button-mobile" class="touch-target inline-flex items-center justify-center gap-2 rounded-lg border border-blue-300/60 bg-blue-500/15 px-4 py-3.5 font-semibold text-blue-50 transition-colors hover:bg-blue-500/25" type="button">
         <Download size={18} /> Instalar como app
       </button>
-      <a class="touch-target inline-flex items-center justify-center gap-2 rounded-md bg-blue-600 px-4 py-3 font-semibold text-white" href={createWhatsAppLink(defaultWhatsAppMessage('quiero cotizar un servicio'))} target="_blank" rel="noopener noreferrer">
+      <a class="touch-target inline-flex items-center justify-center gap-2 rounded-lg bg-blue-600 px-4 py-3.5 font-semibold text-white transition-colors hover:bg-blue-500" href={createWhatsAppLink(defaultWhatsAppMessage('quiero cotizar un servicio'))} target="_blank" rel="noopener noreferrer">
         <MessageCircle size={18} /> Cotizar por WhatsApp
       </a>
     </div>

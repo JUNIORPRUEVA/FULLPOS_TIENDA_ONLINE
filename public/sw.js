@@ -8,12 +8,8 @@ const APP_SHELL = [
   '/manifest.webmanifest',
   '/favicon.svg',
   '/images/hero-installation.jpg',
-  '/images/logo-fulltech-light.jpg',
-  '/images/logo-fulltech-dark.jpg',
   '/images/motor-porton-real.jpg',
-  '/icons/icon-192.png',
-  '/icons/icon-512.png',
-  '/icons/apple-touch-icon.png',
+  '/icons/logoPrincipal.png',
 ];
 
 self.addEventListener('install', (event) => {

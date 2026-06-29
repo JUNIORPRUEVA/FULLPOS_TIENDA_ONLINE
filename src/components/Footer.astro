@@ -2,12 +2,13 @@
 import { categories } from '@data/categories';
 import { siteConfig } from '@config/site';
 import { createWhatsAppLink, defaultWhatsAppMessage } from '@utils/whatsapp';
+import BrandLogo from '@components/BrandLogo.astro';
 ---
 
 <footer class="dark-shell border-t border-blue-400/20 text-white">
   <div class="container-page grid gap-8 py-10 md:grid-cols-[1.2fr_1fr_1fr]">
     <div>
-      <img src="/images/logo-fulltech-dark.jpg" alt={siteConfig.name} class="h-16 w-16 rounded-lg object-cover ring-1 ring-white/10" width="64" height="64" loading="lazy" />
+      <BrandLogo variant="footer" />
       <strong class="mt-4 block text-lg font-semibold text-white">{siteConfig.name}</strong>
       <p class="mt-3 max-w-sm text-sm leading-6 text-slate-300">
         Soluciones de seguridad, instalacion de camaras, motores para portones y servicios tecnicos en Higuey.

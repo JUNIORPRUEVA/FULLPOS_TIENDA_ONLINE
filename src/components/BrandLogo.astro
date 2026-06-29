@@ -1,0 +1,30 @@
+---
+type Props = {
+  variant?: 'navbar' | 'hero' | 'drawer' | 'footer';
+  className?: string;
+};
+
+const { variant = 'navbar', className = '' } = Astro.props;
+
+const sizes = {
+  navbar: { box: 'size-10', img: 'w-full h-full', size: 40 },
+  hero: { box: 'size-7', img: 'w-full h-full', size: 28 },
+  drawer: { box: 'size-12', img: 'w-full h-full', size: 48 },
+  footer: { box: 'size-14', img: 'w-full h-full', size: 56 },
+};
+
+const s = sizes[variant] || sizes.navbar;
+---
+
+<span
+  class="inline-grid shrink-0 place-items-center overflow-hidden rounded-lg bg-white shadow-[0_2px_8px_rgba(0,0,0,0.12)] ring-1 ring-black/8 {s.box} {className}"
+>
+  <img
+    src="/icons/logoPrincipal.png"
+    alt="Fulltech"
+    class="object-contain {s.img}"
+    width={s.size}
+    height={s.size}
+    loading="lazy"
+  />
+</span>
