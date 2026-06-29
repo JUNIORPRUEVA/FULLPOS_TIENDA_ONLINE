@@ -1,0 +1,10 @@
+---
+type Props = { title: string; description: string };
+const { title, description } = Astro.props;
+---
+
+<article class="soft-card rounded-lg p-4 sm:p-5">
+  <div class="mb-4 grid size-10 place-items-center rounded-md bg-green-50 text-green-700">&#10003;</div>
+  <h3 class="font-semibold text-slate-950">{title}</h3>
+  <p class="mt-2 text-sm leading-6 text-slate-600">{description}</p>
+</article>

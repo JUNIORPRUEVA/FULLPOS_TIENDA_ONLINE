@@ -1,0 +1,27 @@
+# Dependencies
+node_modules/
+
+# Astro
+.astro/
+dist/
+
+# Logs
+*.log
+dev-server.log
+dev-server.err.log
+
+# Environment
+.env
+.env.*
+
+# OS/editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Flutter admin generated output
+app_admin/build/
+app_admin/.dart_tool/
+app_admin/.flutter-plugins
+app_admin/.flutter-plugins-dependencies

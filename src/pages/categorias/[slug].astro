@@ -1,0 +1,50 @@
+---
+import Layout from '@layouts/Layout.astro';
+import Breadcrumbs from '@components/Breadcrumbs.astro';
+import OfferCard from '@components/OfferCard.astro';
+import CTASection from '@components/CTASection.astro';
+import FAQ from '@components/FAQ.astro';
+import { categories, getCategoryBySlug } from '@data/categories';
+import { getOffersByCategory } from '@data/offers';
+import { generalFaqs } from '@data/faqs';
+
+export function getStaticPaths() {
+  return categories.map((category) => ({ params: { slug: category.slug } }));
+}
+
+const category = getCategoryBySlug(Astro.params.slug ?? '')!;
+const categoryOffers = getOffersByCategory(category.slug);
+const filters = ['Hogar', 'Negocio', 'Instalacion incluida', 'Mantenimiento'];
+---
+
+<Layout title={category.seoTitle} description={category.seoDescription}>
+  <Breadcrumbs items={[{ label: 'Categorias', href: '/categorias' }, { label: category.name }]} />
+  <section class="section-pad bg-slate-50">
+    <div class="container-page grid gap-8 lg:grid-cols-[1fr_320px] lg:items-start">
+      <div>
+        <img src={category.image} alt="" class="mb-5 size-16" width="64" height="64" />
+        <h1 class="text-3xl font-semibold text-slate-950 sm:text-4xl">{category.name}</h1>
+        <p class="mt-4 max-w-3xl text-lg leading-8 text-slate-600">{category.description}</p>
+        <div class="mt-6 flex flex-wrap gap-2">
+          {filters.map((filter) => <span class="rounded-md bg-white px-3 py-2 text-sm font-medium text-slate-700 ring-1 ring-slate-200">{filter}</span>)}
+        </div>
+      </div>
+      <aside class="soft-card rounded-lg p-4 sm:p-5">
+        <h2 class="font-semibold text-slate-950">Beneficios</h2>
+        <ul class="mt-4 space-y-3 text-sm leading-6 text-slate-700">
+          {category.benefits.map((benefit) => <li class="flex gap-2"><span class="text-green-600">&#10003;</span>{benefit}</li>)}
+        </ul>
+      </aside>
+    </div>
+  </section>
+  <section class="section-pad bg-white">
+    <div class="container-page">
+      <h2 class="text-2xl font-semibold text-slate-950 sm:text-3xl">Opciones disponibles</h2>
+      <div class="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+        {categoryOffers.length ? categoryOffers.map((offer) => <OfferCard offer={offer} />) : <p class="text-slate-600">Pronto agregaremos ofertas en esta categoria.</p>}
+      </div>
+    </div>
+  </section>
+  <CTASection title={`Cotizar ${category.name.toLowerCase()}`} message={`Hola Fulltech, quiero cotizar ${category.name}.`} />
+  <FAQ items={[...(category.faqs ?? []), ...generalFaqs.slice(0, 3)]} />
+</Layout>

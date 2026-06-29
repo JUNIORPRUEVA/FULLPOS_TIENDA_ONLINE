@@ -1,0 +1,24 @@
+{
+  "name": "fulltech-ecommerce",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "check": "astro check",
+    "format": "prettier --write ."
+  },
+  "dependencies": {
+    "@lucide/astro": "^1.22.0",
+    "astro": "^6.4.8",
+    "tailwindcss": "^4.3.1"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.9",
+    "@tailwindcss/postcss": "^4.3.1",
+    "prettier": "^3.6.2",
+    "typescript": "^5.9.3"
+  }
+}

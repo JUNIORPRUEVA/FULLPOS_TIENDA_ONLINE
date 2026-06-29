@@ -1,0 +1,26 @@
+---
+import Layout from '@layouts/Layout.astro';
+import Breadcrumbs from '@components/Breadcrumbs.astro';
+import QuoteForm from '@components/QuoteForm.astro';
+---
+
+<Layout title="Cotizar instalacion" description="Formulario rapido para cotizar camaras de seguridad, motores para portones o mantenimiento con Fulltech SRL en Higuey.">
+  <Breadcrumbs items={[{ label: 'Cotizar' }]} />
+  <section class="section-pad bg-slate-50">
+    <div class="container-page grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+      <div>
+        <h1 class="text-3xl font-semibold text-slate-950 sm:text-4xl">Cotiza rapido desde tu celular</h1>
+        <p class="mt-4 text-lg leading-8 text-slate-600">
+          Completa estos datos y enviaremos el mensaje directo por WhatsApp. Sin cuentas, sin carrito y sin pasos innecesarios.
+        </p>
+        <div class="soft-card mt-6 rounded-lg p-4 sm:p-5">
+          <h2 class="font-semibold text-slate-950">Reserva tu instalacion</h2>
+          <p class="mt-2 text-sm leading-6 text-slate-600">
+            Esta seccion queda lista para integrar en el futuro calendario, backend o base de datos.
+          </p>
+        </div>
+      </div>
+      <QuoteForm />
+    </div>
+  </section>
+</Layout>

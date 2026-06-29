@@ -1,0 +1,28 @@
+---
+import Layout from '@layouts/Layout.astro';
+import QuoteForm from '@components/QuoteForm.astro';
+import Breadcrumbs from '@components/Breadcrumbs.astro';
+import { siteConfig } from '@config/site';
+import { createWhatsAppLink } from '@utils/whatsapp';
+---
+
+<Layout title="Contacto" description="Contacta a Fulltech SRL en Higuey por WhatsApp, telefono o formulario rapido para instalaciones y servicios tecnicos.">
+  <Breadcrumbs items={[{ label: 'Contacto' }]} />
+  <section class="section-pad bg-slate-50">
+    <div class="container-page grid gap-8 lg:grid-cols-[0.8fr_1.2fr]">
+      <div>
+        <h1 class="text-3xl font-semibold text-slate-950 sm:text-4xl">Contacto</h1>
+        <div class="soft-card mt-6 space-y-4 rounded-lg p-4 sm:p-5">
+          <p><strong>WhatsApp:</strong> {siteConfig.phone}</p>
+          <p><strong>Ubicacion:</strong> {siteConfig.address}</p>
+          <p><strong>Horario:</strong> {siteConfig.schedule}</p>
+          <a class="inline-flex min-h-12 items-center rounded-md bg-green-600 px-4 font-semibold text-white" href={createWhatsAppLink('Hola Fulltech, quiero contactar con ustedes.')} target="_blank" rel="noopener noreferrer">Abrir WhatsApp</a>
+        </div>
+        <div class="mt-5 grid min-h-48 place-items-center rounded-lg border border-dashed border-slate-300 bg-white p-5 text-center text-sm text-slate-500">
+          Mapa de ubicacion editable para integrar Google Maps o enlace directo.
+        </div>
+      </div>
+      <QuoteForm />
+    </div>
+  </section>
+</Layout>

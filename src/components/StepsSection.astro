@@ -1,0 +1,23 @@
+---
+const steps = [
+  ['1', 'Elige el servicio', 'Revisa categorias, ofertas o escribe directo por WhatsApp.'],
+  ['2', 'Solicita cotizacion', 'Enviamos orientacion segun tu casa, negocio u oficina.'],
+  ['3', 'Coordinamos visita', 'Validamos condiciones, equipos y disponibilidad.'],
+  ['4', 'Instalamos', 'Dejamos el sistema probado y funcionando.'],
+];
+---
+
+<section class="section-pad bg-slate-50">
+  <div class="container-page">
+    <h2 class="text-2xl font-semibold text-slate-950 sm:text-3xl">Como funciona</h2>
+    <div class="mt-8 grid gap-4 md:grid-cols-4">
+      {steps.map(([number, title, description]) => (
+        <article class="soft-card rounded-lg p-4 sm:p-5">
+          <span class="grid size-10 place-items-center rounded-md bg-blue-600 font-semibold text-white">{number}</span>
+          <h3 class="mt-4 font-semibold text-slate-950">{title}</h3>
+          <p class="mt-2 text-sm leading-6 text-slate-600">{description}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

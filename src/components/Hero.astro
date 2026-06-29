@@ -1,0 +1,43 @@
+---
+import { createWhatsAppLink } from '@utils/whatsapp';
+---
+
+<section class="relative overflow-hidden bg-slate-950 text-white">
+  <img
+    src="/images/hero-installation.jpg"
+    alt="Tecnico instalando camara de seguridad para Fulltech SRL"
+    class="absolute inset-0 h-full w-full object-cover object-center opacity-46 sm:object-[center_38%]"
+    width="1536"
+    height="864"
+    loading="eager"
+    fetchpriority="high"
+  />
+  <div class="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(18,104,255,0.36),transparent_34%),linear-gradient(90deg,#05070d_0%,rgba(5,7,13,0.9)_42%,rgba(5,7,13,0.42)_100%)]"></div>
+  <div class="container-page relative grid min-h-[72svh] content-center py-12 sm:min-h-[74svh] sm:py-16">
+    <div class="max-w-2xl">
+      <div class="mb-5 inline-flex items-center gap-3 rounded-md border border-white/12 bg-white/8 px-3 py-2 text-sm font-medium text-blue-100">
+        <img src="/images/logo-fulltech-light.jpg" alt="" class="size-8 rounded bg-white object-cover" width="32" height="32" />
+        Fulltech SRL en Higuey
+      </div>
+      <h1 class="text-balance text-[2.15rem] font-semibold leading-[1.08] sm:text-5xl lg:text-[3.55rem]">
+        Instalacion de camaras y motores de portones en Higuey
+      </h1>
+      <p class="mt-5 max-w-xl text-base leading-7 text-slate-100 sm:text-lg sm:leading-8">
+        Protege tu casa o negocio con soluciones instaladas por tecnicos de Fulltech SRL. Cotiza rapido por WhatsApp y recibe orientacion segun lo que realmente necesitas.
+      </p>
+      <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+        <a class="focus-ring touch-target inline-flex items-center justify-center rounded-md bg-blue-600 px-5 py-3 font-semibold text-white shadow-lg shadow-blue-950/35 hover:bg-blue-500" href="#ofertas">
+          Ver ofertas
+        </a>
+        <a class="focus-ring touch-target inline-flex items-center justify-center rounded-md border border-white/20 bg-white/10 px-5 py-3 font-semibold text-white backdrop-blur hover:bg-white/16" href={createWhatsAppLink('Hola Fulltech, quiero cotizar una instalacion.')} target="_blank" rel="noopener noreferrer">
+          Cotizar por WhatsApp
+        </a>
+      </div>
+      <div class="mt-7 grid grid-cols-3 gap-2 text-center text-xs text-slate-200 sm:max-w-lg sm:text-sm">
+        <span class="rounded-md border border-white/10 bg-white/8 px-2 py-3">Camaras</span>
+        <span class="rounded-md border border-white/10 bg-white/8 px-2 py-3">Portones</span>
+        <span class="rounded-md border border-white/10 bg-white/8 px-2 py-3">Soporte</span>
+      </div>
+    </div>
+  </div>
+</section>

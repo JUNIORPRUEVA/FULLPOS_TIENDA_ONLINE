@@ -1,0 +1,67 @@
+---
+import { siteConfig } from '@config/site';
+---
+
+<form id="quote-form" class="soft-card grid gap-4 rounded-lg p-4 sm:p-5">
+  <div class="grid gap-4 sm:grid-cols-2">
+    <label class="grid gap-2 text-sm font-bold text-slate-800">
+      Nombre
+      <input class="min-h-12 rounded-md border border-slate-300 px-3 font-normal focus:border-blue-600 focus:outline-none" name="nombre" autocomplete="name" required />
+    </label>
+    <label class="grid gap-2 text-sm font-bold text-slate-800">
+      Telefono
+      <input class="min-h-12 rounded-md border border-slate-300 px-3 font-normal focus:border-blue-600 focus:outline-none" name="telefono" inputmode="tel" autocomplete="tel" required />
+    </label>
+  </div>
+  <label class="grid gap-2 text-sm font-bold text-slate-800">
+    Ciudad o sector
+    <input class="min-h-12 rounded-md border border-slate-300 px-3 font-normal focus:border-blue-600 focus:outline-none" name="ciudad" autocomplete="address-level2" required />
+  </label>
+  <div class="grid gap-4 sm:grid-cols-2">
+    <label class="grid gap-2 text-sm font-bold text-slate-800">
+      Tipo de servicio
+      <select class="min-h-12 rounded-md border border-slate-300 px-3 font-normal focus:border-blue-600 focus:outline-none" name="servicio" required>
+        <option>Camaras de seguridad</option>
+        <option>Motor de porton</option>
+        <option>Mantenimiento</option>
+        <option>Otro</option>
+      </select>
+    </label>
+    <label class="grid gap-2 text-sm font-bold text-slate-800">
+      Tipo de propiedad
+      <select class="min-h-12 rounded-md border border-slate-300 px-3 font-normal focus:border-blue-600 focus:outline-none" name="propiedad" required>
+        <option>Casa</option>
+        <option>Negocio</option>
+        <option>Oficina</option>
+        <option>Otro</option>
+      </select>
+    </label>
+  </div>
+  <label class="grid gap-2 text-sm font-bold text-slate-800">
+    Mensaje o detalles
+    <textarea class="min-h-28 rounded-md border border-slate-300 px-3 py-3 font-normal focus:border-blue-600 focus:outline-none" name="detalles" placeholder="Ej: quiero 4 camaras, tengo porton corredizo, estoy en..." required></textarea>
+  </label>
+  <button class="touch-target rounded-md bg-green-600 px-5 py-3 font-semibold text-white hover:bg-green-700" type="submit">
+    Enviar por WhatsApp
+  </button>
+</form>
+
+<script is:inline define:vars={{ whatsappNumber: siteConfig.whatsapp }}>
+  const form = document.getElementById('quote-form');
+  form?.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const data = new FormData(form);
+    const message = `Hola Fulltech, quiero una cotizacion.
+
+Nombre: ${data.get('nombre')}
+Telefono: ${data.get('telefono')}
+Ciudad/Sector: ${data.get('ciudad')}
+Servicio: ${data.get('servicio')}
+Tipo de propiedad: ${data.get('propiedad')}
+Detalles: ${data.get('detalles')}
+
+Me interesa recibir informacion y coordinar instalacion.`;
+
+    window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`, '_blank', 'noopener,noreferrer');
+  });
+</script>

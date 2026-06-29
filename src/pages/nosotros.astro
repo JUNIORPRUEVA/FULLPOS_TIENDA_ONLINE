@@ -1,0 +1,23 @@
+---
+import Layout from '@layouts/Layout.astro';
+import CTASection from '@components/CTASection.astro';
+import Breadcrumbs from '@components/Breadcrumbs.astro';
+---
+
+<Layout title="Sobre Fulltech SRL" description="Fulltech SRL es una empresa de Higuey enfocada en soluciones tecnologicas, seguridad, instalaciones y soporte para hogares y negocios.">
+  <Breadcrumbs items={[{ label: 'Nosotros' }]} />
+  <section class="section-pad bg-white">
+    <div class="container-page max-w-4xl">
+      <h1 class="text-3xl font-semibold text-slate-950 sm:text-4xl">Fulltech SRL</h1>
+      <p class="mt-5 text-lg leading-8 text-slate-600">
+        Somos una empresa de Higuey enfocada en soluciones tecnologicas, seguridad e instalaciones para hogares y negocios. Trabajamos con clientes que necesitan proteger, automatizar o mejorar su propiedad con orientacion clara y soporte tecnico.
+      </p>
+      <div class="mt-8 grid gap-4 md:grid-cols-3">
+        <article class="rounded-lg bg-slate-50 p-5"><h2 class="font-semibold">Confianza</h2><p class="mt-2 text-sm leading-6 text-slate-600">Explicamos opciones y alcances antes de instalar.</p></article>
+        <article class="rounded-lg bg-slate-50 p-5"><h2 class="font-semibold">Garantia</h2><p class="mt-2 text-sm leading-6 text-slate-600">Equipos y servicios con condiciones claras segun cada caso.</p></article>
+        <article class="rounded-lg bg-slate-50 p-5"><h2 class="font-semibold">Soporte</h2><p class="mt-2 text-sm leading-6 text-slate-600">Acompanamiento despues del servicio para dudas o ajustes.</p></article>
+      </div>
+    </div>
+  </section>
+  <CTASection title="Quieres hablar con un tecnico?" message="Hola Fulltech, quiero orientacion sobre una instalacion." />
+</Layout>

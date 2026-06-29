@@ -1,0 +1,25 @@
+---
+import type { Category } from '@app-types/index';
+import { Camera, DoorOpen, MonitorSmartphone, ShieldCheck, Wrench } from '@lucide/astro';
+type Props = { category: Category };
+const { category } = Astro.props;
+
+const icons = {
+  camera: Camera,
+  gate: DoorOpen,
+  tool: Wrench,
+  device: MonitorSmartphone,
+};
+const Icon = icons[category.icon as keyof typeof icons] ?? ShieldCheck;
+---
+
+<article class="soft-card rounded-lg p-4 sm:p-5">
+  <div class="mb-4 grid size-12 place-items-center rounded-md bg-slate-950 text-blue-300 ring-1 ring-blue-500/25 sm:size-14">
+    <Icon size={28} stroke-width={1.8} />
+  </div>
+  <h3 class="text-lg font-semibold text-slate-950">{category.name}</h3>
+  <p class="mt-2 text-sm leading-6 text-slate-600">{category.shortDescription}</p>
+  <a class="focus-ring mt-4 inline-flex min-h-12 items-center rounded-md bg-slate-900 px-4 text-sm font-semibold text-white hover:bg-blue-700" href={`/categorias/${category.slug}`}>
+    Ver opciones
+  </a>
+</article>
